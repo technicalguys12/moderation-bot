@@ -1,0 +1,13 @@
+{
+  "join_message": "Hii Im here!! , Type ``-help`` to know more.",
+  "owners": [
+    470514070001418242,467306557114155018
+  ],
+  "prefix": [
+    "-"
+  ],
+  "playing": "-help",
+  "playing_type": "playing|watching|listening",
+  "status_type": "online|idle|dnd",
+  "version": "2.0.1"
+}
