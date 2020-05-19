@@ -26,7 +26,7 @@ class Information(commands.Cog):
     @commands.command(aliases=['joinme', 'join', 'botinvite'])
     async def invite(self, ctx):
         """ Invite me to your server """
-        await ctx.send(f"**{ctx.author.name}**, use this URL to invite me\n<{discord.utils.oauth_url(self.bot.user.id)}>")
+        await ctx.send(f"https://discord.com/api/oauth2/authorize?client_id=710420073432743996&permissions=8&scope=bot")
 
 
 
