@@ -116,21 +116,25 @@ class Admin(commands.Cog):
 
     @change.command(name="playing")
     @commands.check(permissions.is_owner)
-    async def change_playing(self, ctx, *, playing: str):
+    async def change_playing(self, ctx, status: str, game : str, *, playing: str):
         """ Change playing status. """
-        if self.config.status_type == "idle":
+        if status == "idle":
             status_type = discord.Status.idle
-        elif self.config.status_type == "dnd":
+        elif status == "dnd":
             status_type = discord.Status.dnd
-        else:
+        elif status == "online":
             status_type = discord.Status.online
-
-        if self.config.playing_type == "listening":
-            playing_type = 2
-        elif self.config.playing_type == "watching":
-            playing_type = 3
         else:
+            await ctx.send(" status is supposed to be ``idle or dnd or online``!!")
+
+        if game == "listening":
+            playing_type = 2
+        elif game == "watching":
+            playing_type = 3
+        elif game == "playing":
             playing_type = 0
+        else:
+            await ctx.send("activity is supposed to be `` listening or watching or playing``")
 
         try:
             await self.bot.change_presence(
@@ -143,7 +147,6 @@ class Admin(commands.Cog):
             await ctx.send(err)
         except Exception as e:
             await ctx.send(e)
-
     @change.command(name="username")
     @commands.check(permissions.is_owner)
     async def change_username(self, ctx, *, name: str):
